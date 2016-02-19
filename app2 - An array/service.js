@@ -1,4 +1,4 @@
-app.service('theService', function() {
+angular.module('arrayApp').service('theService', function() {
 
 
 
@@ -105,8 +105,8 @@ var myData = [
 	{"name": "Odysseus Nash", "email": "purus@rutrum.co.uk", "dateEmployed": "01/08/2016", "phone": "722-7908"}
 ];
 
-this.getData = function() {
-	return myData;
-}
+	this.getData = function() {
+		return myData;
+	}
 
 });

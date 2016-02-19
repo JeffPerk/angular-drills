@@ -1,9 +1,6 @@
-app.controller('gravy', function($scope, biscuit) {
-
-  $scope.iChooseYou = function(name) {
-    biscuit.getPokemon(name).then(function(response) {
-      $scope.poke = response;
-    })
-  }
-
-});
+angular.module('apiApp').controller('swCtrl', function($scope, swSvc) {
+  var promise = swSvc.getStarships();
+  promise.then(function(starships) {
+    $scope.starships = starships;
+  })
+})

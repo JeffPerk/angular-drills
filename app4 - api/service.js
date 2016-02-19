@@ -1,8 +1,20 @@
-app.service('biscuit', function($http) {
-  this.getPokemon = function(name) {
-    return $http.get('http://pokeapi.co/api/v2/pokemon/' + name).then(function(response) {
-      console.log(response);
-      return response.data;
+angular.module('apiApp').service('swSvc', function($http, $q) {
+  var baseUrl = 'http://swapi.co/api/';
+
+  this.getStarships = function() {
+    var deferred = $q.defer(); //Promise 1
+
+    $http({   //Promise 2
+      method: 'GET',
+      url: baseUrl + 'starships/'
+    }).then(function(response) {
+      deferred.resolve(response.data)
+    }, function(err) {
+      console.error(err);
     })
+
+
+
+    return deferred.promise;
   }
 })
